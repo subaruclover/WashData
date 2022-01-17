@@ -4,10 +4,10 @@ import pandas as pd
 import numpy as np
 import logging.config, datetime
 from copy import deepcopy
+
 # import global_var as gl
 # import config as conf
 logger = logging.getLogger(__name__)
-
 
 # """
 ###################
@@ -21,7 +21,7 @@ our_data = np.loadtxt('house214_2019.csv', delimiter=',', skiprows=1, usecols=co
 # get the load column (2nd), house 214, 2019
 # consumption = our_data[:, 1]
 # print(int(len(our_data)/96))
-day_len = int(len(our_data)/96)
+day_len = int(len(our_data) / 96)
 
 for load_col in our_data:
     house_id = "E{0:03d}".format(int(load_col[0]))
@@ -29,8 +29,7 @@ for load_col in our_data:
         consumption[house_id] = []
 
 for day in range(day_len):
-    consumption[house_id].append(our_data[day*96:(day+1)*96, 1])
-
+    consumption[house_id].append(our_data[day * 96:(day + 1) * 96, 1])
 
 # 'E214' = {list:334} days of data
 for house_id in consumption:
@@ -53,7 +52,7 @@ our_data = np.loadtxt('house214_2019.csv', delimiter=',', skiprows=1, usecols=co
 # pv = our_data[:, 2]
 pv = {}
 
-day_len = int(len(our_data)/96)
+day_len = int(len(our_data) / 96)
 
 # for day in range(day_len):
 #     pv.append(our_data[day*96:(day+1)*96, 2])
@@ -64,8 +63,7 @@ for load_col in our_data:
         pv[house_id] = []
 
 for day in range(day_len):
-    pv[house_id].append(our_data[day*96:(day+1)*96, 2])
-
+    pv[house_id].append(our_data[day * 96:(day + 1) * 96, 2])
 
 # 'E214' = {list:334} days of data
 for house_id in pv:
@@ -91,12 +89,12 @@ print(pv.size)
 
 count_s = 0
 # def old_pvcUpdate_Sample():
-count_h=float(count_s)/3600
-weight = count_h-int(count_h)
-step_now=(int((count_h)/24*4)),int((count_h)%24*4)
-step_next=(int((count_h+1)/24*4)),int((count_h+1)%24*4)
+count_h = float(count_s) / 3600
+weight = count_h - int(count_h)
+step_now = (int((count_h) / 24 * 4)), int((count_h) % 24 * 4)
+step_next = (int((count_h + 1) / 24 * 4)), int((count_h + 1) % 24 * 4)
 
-if int(count_h+1) >= pv.size:
+if int(count_h + 1) >= pv.size:
     logger.debug("no more solar radiation data")
 
 from bottle import route, run, template
@@ -117,4 +115,3 @@ else:
     charge_discharge_power = - round(powerflowToBattery, 2)
     battery_current = -round(charge_discharge_power / batteryVoltage, 2)
     # logger.debug( i+ ": charge_disch "+ str(-gl.oesunits[i]["emu"]["charge_discharge_power"]) + ", ACLoss: "+str(ACLoss) + ", DCLoss: " +str(DCLoss))
-
