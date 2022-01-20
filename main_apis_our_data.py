@@ -20,6 +20,7 @@ Create by Qiong
 
 import pandas as pd
 import time
+import os
 from TestCSV import file_name_csv, \
                     file_name_weather, \
                     weather_split, \
@@ -30,6 +31,12 @@ from TestCSV import file_name_csv, \
                     timeframe_avg
 
 start_time = time.clock()
+
+# get current path: /Users/Huang/Documents
+getpath = os.path.abspath(os.path.join(os.getcwd(), os.path.pardir))
+desired_dir = getpath + "/hilsideData/"
+filename1 = " "
+full_path1 = os.path.join(desired_dir, filename1)
 
 raw_data_dir_2019_csv = '/Users/Huang/Documents/hilsideData/2019_csv'
 # clean_data_dir_2019_csv = '/Users/Huang/Documents/hilsideDataClean/2019_csv'
@@ -148,7 +155,15 @@ if __name__ == "__main__":
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2019_quarterhour.csv', index=False)
 
     # average value for time window
-    timestep = 60
+    # timestep = 60
+    # ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2018_sift_all.csv'
+    # inputdata = pd.read_csv(ess_dir)
+    # outputdata = timeframe_avg(timestep, inputdata)
+    # # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_quarterhour_avg.csv', index=False)
+    # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_hour_avg.csv', index=False)
+
+    # average value for 30 mins (set for APIS input data)
+    timestep = 30
     ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2018_sift_all.csv'
     inputdata = pd.read_csv(ess_dir)
     outputdata = timeframe_avg(timestep, inputdata)
