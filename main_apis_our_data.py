@@ -162,6 +162,8 @@ if __name__ == "__main__":
     # # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_quarterhour_avg.csv', index=False)
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_hour_avg.csv', index=False)
 
+    # TODO: load data and solar data, same data in a year/month,
+    #  house 212, 213, 214, 215 (205, 206, 208) pick these 4 houses to replace the sample data
     # average value for 30 mins (set for APIS input data)
     timestep = 30
     ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2019_sift_all.csv'
