@@ -117,8 +117,8 @@ print('The regression function of this model is y = {} + {} * x'.format(w0, w1))
 # plot
 plt.scatter(X_train, y_train, color='seagreen', label='train data', s=1)
 plt.scatter(X_test, y_test, color='darkorange', label='test data', s=1)
-plt.xlabel(r'cumulated battery current (A(DC))')
-plt.ylabel(r'rsoc (%)')
+plt.xlabel('cumulated battery current (A(DC))')
+plt.ylabel('rsoc (%)')
 
 # fitting curve
 Y_train_pred = regr_model.predict(X_train)
