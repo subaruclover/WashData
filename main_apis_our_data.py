@@ -162,8 +162,9 @@ if __name__ == "__main__":
     # # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_quarterhour_avg.csv', index=False)
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_hour_avg.csv', index=False)
 
-    # TODO: load data and solar data, same data in a year/month,
-    #  house 212, 213, 214, 215 (205, 206, 208) pick these 4 houses to replace the sample data
+    # TODO: load data and solar data, same data in a year/month (2019),
+    #  house 212, 213, 214, 215 (205, 206, 208) pick these 4 houses to replace the sample data,
+    #  only load data is needed (w.r.t the form of sample data, house ID needed)
     # average value for 30 mins (set for APIS input data)
     timestep = 30
     ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2019_sift_all.csv'
@@ -172,7 +173,8 @@ if __name__ == "__main__":
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_quarterhour_avg.csv', index=False)
     outputdata.to_csv('/Users/Huang/Documents/APIS/apis-emulator/data/input/Sample/house214_2019_hour_avg.csv', index=False)
 
-    # weather hillside
+    # TODO: solar data, use timestep = 30 for APIS, only solar power is needed
+    # weather hillside (solar)
     # timestep = 15
     # ess_dir = '/Users/Huang/Documents/DQNBattery/data/hillside_2019_sift_all.csv'
     # inputdata = pd.read_csv(ess_dir)
