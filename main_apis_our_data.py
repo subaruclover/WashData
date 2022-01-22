@@ -164,11 +164,11 @@ if __name__ == "__main__":
 
     # average value for 30 mins (set for APIS input data)
     timestep = 30
-    ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2018_sift_all.csv'
+    ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2019_sift_all.csv'
     inputdata = pd.read_csv(ess_dir)
     outputdata = timeframe_avg(timestep, inputdata)
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_quarterhour_avg.csv', index=False)
-    outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_hour_avg.csv', index=False)
+    outputdata.to_csv('/Users/Huang/Documents/APIS/apis-emulator/data/input/Sample/house214_2019_hour_avg.csv', index=False)
 
     # weather hillside
     # timestep = 15
