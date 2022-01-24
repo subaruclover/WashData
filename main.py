@@ -109,6 +109,7 @@ if __name__ == "__main__":
     # hillside_csv(two_station_dir_2019, hillside_dir_2019_overlap)
 
     # house_id_csv(allhouse_data_dir_2019, onehouse_data_dir_2019, houseID)
+    # house_id_csv(allhouse_data_dir_2019, onehouse_data_dir_2019, houseID)
     # house_id_csv(allhouse_data_dir_2019, onehouse_data_dir_2019_May, houseID_Month)
     # house_id_csv(allhouse_data_dir_2018, onehouse_data_dir_2018, houseID)
 
