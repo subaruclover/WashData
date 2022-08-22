@@ -129,12 +129,14 @@ if __name__ == "__main__":
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2019_quarterhour.csv', index=False)
 
     # average value for time window
-    timestep = 60
-    ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2018_sift_all.csv'
+    timestep = 1  # 60
+    # ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2018_sift_all.csv'
+    ess_dir = '/Users/Huang/Documents/DQNBattery/data/house214_2019_sift_all.csv'
     inputdata = pd.read_csv(ess_dir)
     outputdata = timeframe_avg(timestep, inputdata)
     # outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_quarterhour_avg.csv', index=False)
-    outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_2018_hour_avg.csv', index=False)
+    outputdata = outputdata[['timestamp', 'dcdc_grid_power']]
+    outputdata.to_csv('/Users/Huang/Documents/DQNBattery/data/house214_dcdc_min.csv', index=False)
 
     # weather hillside
     # timestep = 15
